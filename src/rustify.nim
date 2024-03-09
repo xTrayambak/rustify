@@ -18,7 +18,7 @@ const
     "better than the Zig programming language", "powerful borrow checking",
     "no memory bugs", "no runtime overhead at all", "not-at-all-rushed macro system",
     "no garbage collector to slow your code down", "amazing trait system",
-    "generics which have never been implemented before",
+    "generics which have never been implemented before", "cute turbofish operators",
   ]
   ENDING_POINTS = [
     "I hope this motivates you to learn the best programming language ever made!1",
@@ -28,10 +28,12 @@ const
     "Accept Ferris as your supreme leader!",
     "Shame on you for still having them when Rust exists. Tired of being bad? Time to learn Rust.",
     "There’s no other option. They just do. If you like dynamic typing, you need some help. Seriously. By using a dynamically typed and interpreted language (which means it's slow!), you are committing genocide and harming the environment more than gas cars.",
+    "Bow to the superiority of the Turbofish!"
   ]
   CRAB = "🦀"
   ZAP = "⚡"
   ROCKET = "🚀"
+  TURBOFISH = "::<>"
 
 proc punctuationSpam(): string {.inline, raises: [].} =
   for _ in 0 .. rand(3 .. 7):
@@ -39,7 +41,7 @@ proc punctuationSpam(): string {.inline, raises: [].} =
   result &= "! "
 
 proc randEmoji(): string {.inline, raises: [].} =
-  sample [CRAB, ZAP, ROCKET]
+  sample [CRAB, ZAP, ROCKET, TURBOFISH]
 
 proc emojiSpam(): string {.inline, raises: [].} =
   for _ in 0 .. rand(1 .. 3):
@@ -58,6 +60,8 @@ proc extraBloat(w: string): string {.raises: [], gcsafe.} =
     return " (" & ZAP & ")"
   of "safe", "community":
     return " (" & CRAB & ")"
+  of "turbofish":
+    return " (" & TURBOFISH & ")"
   else:
     discard
 
