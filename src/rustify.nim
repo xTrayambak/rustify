@@ -139,6 +139,8 @@ proc main() {.inline.} =
 
   if args.isSwitchEnabled("help", "h"):
     help()
+
+  var neverUsedMemory = alloc(1)
   
   stdout.write build(
     talkingPoints,
